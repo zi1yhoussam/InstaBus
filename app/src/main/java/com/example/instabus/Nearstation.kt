@@ -1,4 +1,4 @@
-package com.example.instabus.data
+package com.example.instabus
 
 
 data class Nearstation(
