@@ -43,11 +43,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = ResponseAdapter(st.data.nearstations)
-
         }
-
-        }
-
     }
+}
 
 
