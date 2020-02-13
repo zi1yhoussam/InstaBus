@@ -1,6 +1,5 @@
 package com.example.instabus
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ResponseAdapter(val context: Context,
-                      val data: List<Nearstation>): RecyclerView.Adapter<ResponseAdapter.ViewHolder>()
+class ResponseAdapter(
+    val context: List<Nearstation>,
+    val data: List<Nearstation>): RecyclerView.Adapter<ResponseAdapter.ViewHolder>()
 {
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
     val street_name = itemView.findViewById<TextView>(R.id.street_name)

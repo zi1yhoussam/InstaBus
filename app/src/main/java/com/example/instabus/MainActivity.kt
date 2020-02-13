@@ -5,8 +5,6 @@ import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import com.example.instabus.data.Data
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import retrofit2.Call
@@ -21,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+
         val retrofit = Retrofit.Builder()
             .baseUrl("http://barcelonaapi.marcpous.com")
             .addConverterFactory(MoshiConverterFactory.create())
@@ -31,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         api.getBarcelonaData().enqueue(object : Callback<Response>{
 
             override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
-                response.body()!!.data.nearstations?.let { showData(it) }
-                d("houssam", response.body()!!.data.nearstations!![0].street_name)            }
+                response.body()!!.data.nearstations?.let { showData(response.body()!!) }
+                d("houssam", response.body()!!.data.nearstations!![0].street_name)}
 
             override fun onFailure(call: Call<Response>, t: Throwable) {
                 d("houssam", "${t.message}")
@@ -40,10 +39,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showData(it: Any): Any {
+    private fun showData(st: Response) {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ResponseAdapter()
+            adapter = ResponseAdapter(st.data.nearstations)
 
         }
 
@@ -51,4 +50,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-}
+
