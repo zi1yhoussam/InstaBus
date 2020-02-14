@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class ResponseAdapter(
-    val context: List<Nearstation>,
-    val data: List<Nearstation>): RecyclerView.Adapter<ResponseAdapter.ViewHolder>()
+    val context: List<NearstationsItem>?): RecyclerView.Adapter<ResponseAdapter.ViewHolder>()
+   // val data: List<NearstationsItem>)
 {
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
     val street_name = itemView.findViewById<TextView>(R.id.street_name)
 
 }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount() = context!!.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
         val inflater = LayoutInflater.from(parent.context)
@@ -32,8 +32,8 @@ class ResponseAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             with(holder) {
                 street_name?.let {
-                it.text = data[position].street_name
-                it.contentDescription = data[position].street_name
+                it.text = context!![position].street_name
+                it.contentDescription = context!![position].street_name
             }
 
         }

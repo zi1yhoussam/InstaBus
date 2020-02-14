@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.content_main)
         setSupportActionBar(toolbar)
 
 
@@ -31,18 +31,23 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
                 response.body()!!.data.nearstations?.let { showData(response.body()!!) }
-                d("houssam", response.body()!!.data.nearstations!![0].street_name)}
+                d("houssam", "teeeeeeeeeeeeeest")
+                d("houssam", "Resonse :${response.body()}")
+
+            }
 
             override fun onFailure(call: Call<Response>, t: Throwable) {
+                d("houssam", "teeeeeeeeeeeeeest2")
                 d("houssam", "${t.message}")
             }
         })
     }
 
-    private fun showData(st: Response) {
-        recyclerView.apply {
+    private fun showData(st: Response?) {
+
+       myFirstRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ResponseAdapter(st.data.nearstations)
+            adapter = ResponseAdapter(st!!.data.nearstations)
         }
     }
 }

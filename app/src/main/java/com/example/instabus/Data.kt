@@ -1,7 +1,8 @@
-package com.example.instabus.data
+package com.example.instabus
 
-import com.example.instabus.Nearstation
+import com.squareup.moshi.Json
 
-data class Data(
-    val nearstations: List<Nearstation>,
-    val transport: String)
+data class Data(@Json(name = "nearstations")
+                val nearstations: List<NearstationsItem>?,
+                @Json(name = "transport")
+                val transport: String = "")

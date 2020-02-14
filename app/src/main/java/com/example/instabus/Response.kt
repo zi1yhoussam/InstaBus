@@ -1,8 +1,8 @@
 package com.example.instabus
 
-import com.example.instabus.data.Data
+import com.squareup.moshi.Json
 
-data class Response(
-    val code: Int,
-    val data: Data
-)
+data class Response(@Json(name = "code")
+                    val code: Int = 0,
+                    @Json(name = "data")
+                    val data: Data)
