@@ -1,11 +1,14 @@
 package com.example.instabus
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class ResponseAdapter(
@@ -35,8 +38,12 @@ class ResponseAdapter(
                 it.text = context!![position].street_name
                 it.contentDescription = context!![position].street_name
             }
+                street_name.setOnClickListener {
+                    Log.d("houssam", "Clicked on ${context!![position].street_name}")
 
+                }
         }
+
     }
 }
 

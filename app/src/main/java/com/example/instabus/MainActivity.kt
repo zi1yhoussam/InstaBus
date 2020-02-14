@@ -1,12 +1,16 @@
 package com.example.instabus
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.response_row.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -18,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_main)
         setSupportActionBar(toolbar)
+
+
 
 
         val retrofit = Retrofit.Builder()
