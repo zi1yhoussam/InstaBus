@@ -1,11 +1,13 @@
 package com.example.instabus
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +19,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class MainActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             adapter = ResponseAdapter(st!!.data.nearstations)
         }
     }
+
 }
 
 
