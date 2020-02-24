@@ -22,10 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".ThirdActivity" />
+        <activity android:name=".activities.SecondActivity" />
+        <activity android:name=".activities.NewMemoryActivity" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

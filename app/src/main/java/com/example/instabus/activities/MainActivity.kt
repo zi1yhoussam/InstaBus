@@ -1,18 +1,16 @@
-package com.example.instabus
+package com.example.instabus.activities
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.instabus.BarcelonaService
+import com.example.instabus.R
+import com.example.instabus.Response
+import com.example.instabus.ResponseAdapter
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.response_row.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -57,7 +55,8 @@ class MainActivity : AppCompatActivity() {
 
        myFirstRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ResponseAdapter(st!!.data.nearstations)
+            adapter =
+                ResponseAdapter(st!!.data.nearstations)
         }
     }
 
